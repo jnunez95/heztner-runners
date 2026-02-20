@@ -14,6 +14,8 @@
 # limitations under the License.
 __author__ = "Vitaliy Zakaznikov"
 __version__ = "1.10.__VERSION__"
+if "__VERSION__" in __version__:
+    __version__ = "1.10.0.dev0"
 __name__ = "testflows.github.hetzner.runners"
 __license__ = f"""
 Copyright 2023-2025 Katteli Inc.

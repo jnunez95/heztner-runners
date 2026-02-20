@@ -13,15 +13,20 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+import os
 from setuptools import setup
 
 with open("README.rst", "r", encoding="utf-8") as fd:
     long_description = fd.read()
 
+# Para desarrollo local: pip install -e . usa versión dev si __VERSION__ no fue reemplazado por ./package
+_version = os.environ.get("GITHUB_HETZNER_RUNNERS_VERSION", "__VERSION__")
+if _version == "__VERSION__":
+    _version = "1.10.0.dev0"
 
 setup(
     name="testflows.github.hetzner.runners",
-    version="__VERSION__",
+    version=_version,
     description="Autoscaling GitHub Actions Runners Using Hetzner Cloud ",
     author="Vitaliy Zakaznikov",
     author_email="vzakaznikov@testflows.com",
